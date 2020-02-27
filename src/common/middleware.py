@@ -5,7 +5,14 @@ class MyLoggingMiddleware:
         print("MyLogging Middleware init")
 
     def __call__(self, request):
-        print("pre-call:{}".format(request))
+        print("MyLoggingMiddleware pre-call:{}".format(request))
         responce = self.get_responce(request)
-        print("post-call:{}".format(request))
+        print("MyLoggingMiddleware post-call:{}".format(request))
         return responce
+
+from django.utils.deprecation import MiddlewareMixin
+
+class NewLoggingMiddleware(MiddlewareMixin):
+    def process_response(self, request, response):
+        print("NewLoggingMiddleware process_response:{}".format(request))
+        return response

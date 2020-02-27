@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'common.middleware.MyLoggingMiddleware',
+    'common.middleware.NewLoggingMiddleware',
 ]
 
 ROOT_URLCONF = 'test_project.urls'
